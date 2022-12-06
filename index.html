@@ -1,4 +1,4 @@
-<h2 style="position=absolute">CANLI VERİLERLE MAKİNE ÖĞRENMESİ</h2>
+<h2 style="position=absolute">teachable machine</h2>
 <button type="button" onclick="init()">TEST BAŞLA</button>
 <div id="webcam-container"></div>
 <div id="label-container"></div>
@@ -53,9 +53,13 @@
         for (let i = 0; i < maxPredictions; i++) {
             const classPrediction =
                 prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-                labelContainer.childNodes[i].innerHTML = classPrediction;
+                labelContainer.childNodes[i].innerHTML =  `
+          <div class="name-progress">${classPrediction}</div>
+            <div class="progress">
+              <div class="inner-progress" style="width:${prediction[i].probability.toFixed(2)*100}%">${prediction[i].probability.toFixed(2)*100}%
+             </div>
+          </div>`;
         }
-    
     }
 </script>
 
